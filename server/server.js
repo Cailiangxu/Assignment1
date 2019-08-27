@@ -1,7 +1,35 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+
+const {User} = require('./models/userDetails');
+const {Channel} = require('./models/channelDetails');
+const {Group} = require('./models/groupDetails');
+
+const cors =require('cors');
+const initUser= [
+  new User('super','super','super@email.com',false,true,true,false,false,[],[]),
+];
+
+// const initChannel = [
+//   new Channel('Ch1','Channnel 1',[]),
+// ];
+//
+// const initGroup= [
+//   new Group('Group 1', 'Group 1',[]),
+// ];
+
+fs.writeFileSync(path.resolve(__dirname,'./data/user.json'),JSON.stringify(initUser));
+
+
+
+
+
+
+
 const app = express();
-// const cors = require('cors');
-// const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 
 
@@ -14,7 +42,7 @@ app.get('/',(req,res)=>{
     res.send('this is server all root.')
 });
 
-require('./routes/userroute')(app);
+require('./routes/userroute')(app,path);
 
 const port = 3000;
 app.listen(port, () => {
