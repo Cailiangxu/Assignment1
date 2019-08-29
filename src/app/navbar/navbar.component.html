@@ -1,14 +1,38 @@
-<p>navbar works!</p>
-<nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top">
-    <div class="container-fluid">
-      <ul class="navbar-nav">
-          <li class="active"><a class="nav-link" routerLink="/">Home</a></li>
-          <li><a class="nav-link" routerLink="/login">Login</a></li>
-          <li><a class="nav-link" routerLink="/account">Account</a></li>
-          <li><a class="nav-link" routerLink="/profile">Profile</a></li>
-          <li><a class="nav-link" routerLink="/logout">Logout</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  
+<!--<nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top">-->
+<!--  <div class="container-fluid">-->
+<!--    <ul class="navbar-nav">-->
+<!--        <li class="active"><a class="nav-link" routerLink="/">Home</a></li>-->
+<!--        <li><a class="nav-link" routerLink="/login">Login</a></li>-->
+<!--        <li><a class="nav-link" routerLink="/home">Home</a></li>-->
+<!--        <li><a class="nav-link" routerLink="/logout">Logout</a></li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/home">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/login">Login</a>
+          <a class="dropdown-item" routerLink="/home">Home</a>
+          <a class="dropdown-item" routerLink="/logout">logout</a>
+
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</nav>

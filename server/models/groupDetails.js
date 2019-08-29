@@ -1,25 +1,16 @@
-class group{
+class Group{
   constructor (
     name,
-    detailes,
-
-
+    details,
 
   )
   {
-    this.username=username;
-    this.password=password;
-    this.email=email;
-    this.valid=valid;
-    this.isActivated=isActivated;
-    this.ofSuperAdminInRole=ofSuperAdminInRole;
-    this.ofGroupAdminInRole=ofGroupAdminInRole;
-    this.ofGroupAssistInRole=ofGroupAssistInRole;
-    this.groupList=groupList;
-    this.adminGroupList=adminGroupList
+    this.name = name;
+    this.details = details
+
   }
 }
 
 module.exports ={
-  group,
+  Group,
 };

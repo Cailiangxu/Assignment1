@@ -5,7 +5,6 @@ module.exports = (app,path)=> {
   const jsonUser = fs.readFileSync(path.resolve(__dirname, '../data/user.json'));
   const users = JSON.parse(jsonUser);
 
-
   app.get('/api/users', (req, res) => {
     res.send(users);
 
@@ -38,8 +37,8 @@ module.exports = (app,path)=> {
 
   });
 
-
   app.post('/api/login', (req, res) => {
+    console.log({ body: req.body});
     if (!req.body) {
       return res.sendStatus(400);
     }
@@ -66,7 +65,7 @@ module.exports = (app,path)=> {
     fs.writeFileSync(path.resolve(__dirname, '../data/user.json'), JSON.stringify(users));
 
     return res.send(user);
-  })
+  });
 
   app.put('/api/user/:username', (req, res) => {
     if (!req.body) {
@@ -87,4 +86,4 @@ module.exports = (app,path)=> {
     return res.send(user);
   });
 
-}
+};

@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server --ignore './data'"
+    "start": "nodemon server --ignore './data/*.json'"
   },
   "author": "",
   "license": "ISC",
