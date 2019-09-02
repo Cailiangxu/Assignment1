@@ -3,32 +3,46 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './login';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeaderComponent } from './header/header.component';
 import { ManageComponent } from './manage/manage.component';
-import { UserComponent } from './manage/user/user.component';
-import { GroupComponent } from './manage/group/group.component';
-import { ChannelComponent } from './manage/channel/channel.component';
+import { UsersComponent } from './manage/users/users.component';
+import { GroupsComponent } from './manage/groups/groups.component';
+import { ChannelsComponent } from './manage/channels/channels.component';
+import { ChatComponent } from './chat/chat.component';
+import { UserListComponent } from './manage/users/user-list/user-list.component';
+import { UserDetailsComponent } from './manage/users/user-details/user-details.component';
+import { UserEditComponent } from './manage/users/user-edit/user-edit.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+// @ts-ignore
+import {NgSelectModule} from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
-    NavbarComponent,
-    HomepageComponent,
+    LoginComponent,
+    DashboardComponent,
+    HeaderComponent,
     ManageComponent,
-    UserComponent,
-    GroupComponent,
-    ChannelComponent
+    UsersComponent,
+    GroupsComponent,
+    ChannelsComponent,
+    ChatComponent,
+    UserListComponent,
+    UserDetailsComponent,
+    UserEditComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgSelectModule,
     HttpClientModule,
-    ReactiveFormsModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

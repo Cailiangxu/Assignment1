@@ -1,12 +1,13 @@
 export class User {
-    username: string;
-    passwor: string;
-    emai: string;
-    vali: string;
-    isActivate: string;
-    ofSuperAdminInRol: string;
-    ofGroupAdminInRol: string;
-    ofGroupAssistInRol: string;
-    groupLis: string;
-    adminGroupLi: string;
+  username: string;
+  password?: string;
+  email: string;
+  valid: string;
+  isActivated: string;
+  ofSuperAdminInRole: boolean;
+  ofGroupAdminInRole: boolean;
+  ofGroupAssistInRole: boolean;
+  groupList: [];
+  channelList: [];
+  adminGroupList: [];
 }

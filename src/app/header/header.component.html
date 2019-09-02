@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+<ul class="navbar-nav mr-auto">
+  <li class="nav-item active">
+    <a class="nav-link" routerLink="/">Home</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="manageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="cursor: pointer;"
+    >
+      Manage
+    </a>
+    <div class="dropdown-menu" aria-labelledby="manageDropdown">
+      <a class="dropdown-item" routerLink="/manage/user">Users</a>
+      <a class="dropdown-item" routerLink="/manage/group">Groups</a>
+      <a class="dropdown-item" routerLink="/manage/channel">Channels</a>
+      <a class="dropdown-item" routerLink="/manage/user">Details</a>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="toAuth()">Account</a>
+    </div>
+  </li>
+</ul>
+<div class="navbar-nav">
+
+</div>
+  </div>
+</nav>

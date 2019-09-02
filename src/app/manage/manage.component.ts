@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../service/user.service';
-import {User} from '../models/user';
 
 @Component({
   selector: 'app-manage',
@@ -8,10 +6,9 @@ import {User} from '../models/user';
   styleUrls: ['./manage.component.css']
 })
 export class ManageComponent implements OnInit {
+  title = 'Manage system';
 
-  constructor(
-
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }

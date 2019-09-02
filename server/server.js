@@ -2,52 +2,54 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const { User } = require('./models/user');
+const { Channel } = require('./models/channel');
+const { Group } = require('./models/group');
+const cors = require('cors');
 
-const {User} = require('./models/userDetails');
-const {Group} = require('./models/groupDetails');
-const {Channel} = require('./models/channelDetails');
+// TODO: create users array and convert them to json file
+const initUsers = [
+  new User('super', 'super', 'super@test.com', false, true, true, false, false, ['group1','group2'], [], ['group1', 'group2']),
+  new User('groupassist', 'password', 'groupassist@test.com', false, true, false, false, true, [], [], []),
+  new User('groupadmin', 'password', 'groupadmin@test.com', false, true, false, true, false, [], [], []),
+  new User('user1', 'password', 'user1@test.com', false, true, false, false, false, ['group1', 'group2'], [], []),
+];
 
-const cors =require('cors');
-//
-// const initUser = [
-//   new User('super','super','super@email.com',false,true,true,false,false,[],[]),
-//   new User('group_admin','group_admin','group_admin@email.com',false,true,false,true,false,[],[]),
-//   new User('group_assist','group_assist','group_assist@email.com',false,true,false,false,true,[],[]),
-//   new User('user1','user1','user1@email.com',false,true,false,false,false,[],[]),
-// ];
-//
-// const initGroup = [
-//   new Group('Group 1'),
-//   new Group('Group 2'),
-//
-// ];
-//
-// const initChannel = [
-//   new Channel('Ch1'),
-//   new Channel('Ch2'),
-// ];
-//
-//
-//
-// fs.writeFileSync(path.resolve(__dirname,'./data/user.json'),JSON.stringify(initUser));
-// fs.writeFileSync(path.resolve(__dirname,'./data/group.json'),JSON.stringify(initGroup));
-// fs.writeFileSync(path.resolve(__dirname,'./data/channel.json'),JSON.stringify(initChannel));
+// TODO: create channels array and convert them to json file
+const initChannels = [
+  new Channel('ch1', 'channel 1', []),
+];
+
+// TODO: create groups array and convert them to json file
+const initGroups = [
+  new Group('group1', 'group 1', []),
+  new Group('group2', 'group 2', []),
+];
+
+fs.writeFileSync(path.resolve(__dirname, './data/users.json'), JSON.stringify(initUsers));
+fs.writeFileSync(path.resolve(__dirname, './data/channels.json'), JSON.stringify(initChannels));
+fs.writeFileSync(path.resolve(__dirname, './data/groups.json'), JSON.stringify(initGroups));
 
 const app = express();
+
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../dist/assignment1/')))
 
-app.get('/',(req,res)=>{
-    res.send('this is service all root.')
+// app.use(bodyParser.urlencoded());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/', (req, res) => {
+  const filePath = path.resolve('../dist/assignment1/index.html')
+  res.sendFile(filePath);
 });
 
-require('./routes/userroute')(app,path);
-require('./routes/grouproute')(app,path);
-require('./routes/channelroute')(app,path);
+require('./routes/user.route')(app, path);
+require('./routes/channel.route')(app, path);
+require('./routes/group.route')(app, path);
 
-const port = 3000;
+const port = process.env.port || 3000;
+
 app.listen(port, () => {
-  // const date = new Date();
-  // console.log(`Server has been started at ${date}`);
-  console.log(`Server is running on 127.0.0.1:${port}`);
+  console.log(`listening to http://localhost:${port}`);
 });
